@@ -1,5 +1,5 @@
-import React from "react"
-import { Button, Center, Stack, Text, useMantineTheme } from "@mantine/core"
+import { Button, Center, Stack, Text, useMantineTheme } from "@mantine/core";
+import React from "react";
 import { useNavigate } from "react-router-dom";
 
 const StartPage: React.FC = () => {

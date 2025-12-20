@@ -1,9 +1,8 @@
-import { useState } from 'react'
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { SessionProvider } from "./context/SessionContext";
-import './App.css'
-import StartPage from './components/StartPage';
+import './App.css';
 import Location from './components/Location';
+import StartPage from './components/StartPage';
+import { SessionProvider } from "./context/SessionContext";
 import Layout from './Layout';
 
 const App: React.FC = () => (
