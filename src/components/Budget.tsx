@@ -6,7 +6,7 @@ import {
 	useMantineTheme
 } from '@mantine/core';
 import { IconArrowBackUp, IconDice5 } from '@tabler/icons-react';
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { SessionContext } from '../context/SessionContext';
 

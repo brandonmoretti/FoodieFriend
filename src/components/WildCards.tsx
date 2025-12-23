@@ -1,9 +1,9 @@
 import {
-    Button,
-    Center, Group, SimpleGrid,
-    Stack,
-    Text, UnstyledButton,
-    useMantineTheme
+	Button,
+	Center, Group, SimpleGrid,
+	Stack,
+	Text, UnstyledButton,
+	useMantineTheme
 } from '@mantine/core';
 import { IconArrowBackUp } from '@tabler/icons-react';
 import { useContext } from 'react';
@@ -87,45 +87,45 @@ interface ImageCheckboxProps {
 	title: string,
 };
 function ImageCheckbox({ title }: ImageCheckboxProps) {
-    const session = useContext(SessionContext);
-    const theme = useMantineTheme();
-  
-    if (!session) {
-      throw new Error('Session undefined.');
-    }
-  
-    const isChecked = session.wildcards.includes(title); 
-  
-    const handleClick = () => {
-      if (isChecked) {
-        session.setWildcards(session.wildcards.filter((wildcard) => wildcard !== title));
-      } else {
-        session.setWildcards([...session.wildcards, title]);
-      }
-    };
-  
-    return (
-      <UnstyledButton
-        onClick={handleClick}
-        data-checked={isChecked || undefined}
-        className={`${classes.button} ${isChecked ? classes.checked : ''}`}
-      >
-        <div className={classes.body}>
-          <Text
-            fz={10}
-            fw={500}
-            size="sm"
-            lh={1}
-            c={isChecked ? theme.colors.theme1[3] : theme.colors.theme2[0]}
-          >
-            {title}
-          </Text>
-        </div>
-      </UnstyledButton>
-    );
-  }
+	const session = useContext(SessionContext);
+	const theme = useMantineTheme();
 
-  function ImageCheckboxes() {
+	if (!session) {
+		throw new Error('Session undefined.');
+	}
+
+	const isChecked = session.wildcards.includes(title);
+
+	const handleClick = () => {
+		if (isChecked) {
+			session.setWildcards(session.wildcards.filter((wildcard) => wildcard !== title));
+		} else {
+			session.setWildcards([...session.wildcards, title]);
+		}
+	};
+
+	return (
+		<UnstyledButton
+			onClick={handleClick}
+			data-checked={isChecked || undefined}
+			className={`${classes.button} ${isChecked ? classes.checked : ''}`}
+		>
+			<div className={classes.body}>
+				<Text
+					fz={10}
+					fw={500}
+					size="sm"
+					lh={1}
+					c={isChecked ? theme.colors.theme1[3] : theme.colors.theme2[0]}
+				>
+					{title}
+				</Text>
+			</div>
+		</UnstyledButton>
+	);
+}
+
+function ImageCheckboxes() {
 	const items = mockdata.map((item) => (
 		<ImageCheckbox title={item} key={item} />
 	));
