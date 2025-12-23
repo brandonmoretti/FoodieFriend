@@ -1,6 +1,10 @@
 #root {
-
+  height: 100%;
   text-align: center;
+}
+
+html {
+  background-color: rgb(126, 127, 154);
 }
 
 .logo {

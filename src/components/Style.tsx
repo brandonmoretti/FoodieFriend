@@ -29,7 +29,7 @@ const Style = () => {
 	}
 
 	return (
-		<Center style={{ height: '100vh' }}>
+		<Center style={{ height: '100%' }}>
 			<Stack align={"center"} pos={"absolute"} top="10%">
 				<Text fz={70} c={theme.colors.theme1[3]}>
 					Style
