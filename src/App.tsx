@@ -2,6 +2,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import './App.css';
 import Location from './components/Location';
 import StartPage from './components/StartPage';
+import Style from "./components/Style";
 import { SessionProvider } from "./context/SessionContext";
 import Layout from './Layout';
 
@@ -11,6 +12,7 @@ const App: React.FC = () => (
 			<Route path="/" element={<SessionProvider><Layout /></SessionProvider>}>
 				<Route index element={<StartPage />} />
 				<Route path="/location" element={<Location />} />
+				<Route path="/style" element={<Style />} />
 			</Route>
 		</Routes>
 	</BrowserRouter>

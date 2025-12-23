@@ -64,7 +64,7 @@ const Location: React.FC = () => {
                         w={"70%"}
                         c={theme.colors.theme1[3]}
                         bg={theme.colors.theme2[0]}
-                        onClick={() => console.log(session.location + " " + session.radius)}
+                        onClick={() => navigate("/style")}
                     >
                         Next
                     </Button>

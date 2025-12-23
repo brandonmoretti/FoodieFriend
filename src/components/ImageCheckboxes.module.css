@@ -1,0 +1,24 @@
+.button {
+  display: flex;
+  flex-direction: column; /* Stack content vertically */
+  align-items: center;
+  justify-content: center;
+  width: 75px; /* Set fixed width for square button */
+  height: 75px; /* Set fixed height for square button */
+  transition: background-color 250ms ease, border-color 250ms ease;
+  border-radius: var(--mantine-radius-sm);
+  padding: var(--mantine-spacing-sm);
+  background-color: #e0bbc1;
+}
+
+.button[data-checked] {
+  background-color: #BF4342; /* Change color when checked */
+}
+
+.body {
+  flex: 1;
+  display: flex;
+  margin: 0; /* No margins are needed */
+  justify-content: center;
+  align-items: center; /* Center content vertically and horizontally */
+}

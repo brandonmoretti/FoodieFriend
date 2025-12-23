@@ -6,6 +6,8 @@ export interface SessionContextType {
 	setLocation: (location: string) => void;
 	radius: number | string;
 	setRadius: (radius: number | string) => void;
+	style: string;
+	setStyle: (style: string) => void;
 	
 }
 
@@ -14,7 +16,7 @@ export const SessionContext = createContext<SessionContextType | undefined>(unde
 export const SessionProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
 	const [location, setLocation] = useState('');
     const [radius, setRadius] = useState<number | string>(1)
-
+	const [style, setStyle] = useState('');
 
 	return (
 		<SessionContext.Provider
@@ -22,7 +24,9 @@ export const SessionProvider: React.FC<{ children: ReactNode }> = ({ children })
 				location,
 				setLocation,
 				radius,
-				setRadius
+				setRadius,
+				style,
+				setStyle,
 			}}
 		>
 			{children}
