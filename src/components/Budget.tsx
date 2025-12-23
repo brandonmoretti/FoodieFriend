@@ -1,19 +1,14 @@
 import {
 	Button,
-	Center, Group,
-	Modal,
-	SimpleGrid,
+	Center, Group, SimpleGrid,
 	Stack,
-	Text,
-	TextInput,
-	UnstyledButton,
+	Text, UnstyledButton,
 	useMantineTheme
 } from '@mantine/core';
 import { IconArrowBackUp, IconDice5 } from '@tabler/icons-react';
 import { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { SessionContext } from '../context/SessionContext';
-
 
 const Style = () => {
 	const theme = useMantineTheme();
@@ -26,27 +21,26 @@ const Style = () => {
 
 	function handleRandom() {
 		session?.setStyle("random")
-		navigate('/budget')
 	}
 
 	return (
 		<Center style={{ height: '100%' }}>
 			<Stack align={"center"} pos={"absolute"} top="10%">
 				<Text fz={60} c={theme.colors.theme1[3]}>
-					Style
+					Budget
 				</Text>
 				<Text fz={20} c={theme.colors.theme1[3]}>
-					Select the style of food you want to eat.
+					Select price range of your meal.
 				</Text>
 				<ImageCheckboxes />
-				<Group w={'75%'} justify={'center'}>
+				<Group mt={60} w={'90%'} justify={'center'}>
 					<Button
 						size={'lg'}
 						p={10}
 						w={'15%'}
 						c={theme.colors.theme1[3]}
 						bg={theme.colors.theme1[4]}
-						onClick={() => navigate('/location')}
+						onClick={() => navigate('/style')}
 					>
 						<IconArrowBackUp />
 					</Button>
@@ -56,7 +50,7 @@ const Style = () => {
 						w={'50%'}
 						c={theme.colors.theme1[3]}
 						bg={theme.colors.theme2[0]}
-						onClick={() => navigate('/budget')}
+						onClick={() => navigate('/wildcards')}
 					>
 						Next
 					</Button>
@@ -83,22 +77,10 @@ export default Style;
 import classes from './ImageCheckboxes.module.css';
 
 const mockdata = [
-	'American',
-	'Mexican',
-	'Italian',
-	'Chinese',
-	'Japanese',
-	'Thai',
-	'Indian',
-	'Mediterranean',
-	'Eastern',
-	'Latin American',
-	'Korean',
-	'Vietnamese',
-	'BBQ',
-	'Seafood',
-	'Pizza',
-	'Other',
+	'$10-$20 ($)',
+	'$20-$40 ($$)',
+	'$40-$60 ($$$)',
+	'$60 < ($$$$)'
 ];
 
 interface ImageCheckboxProps {
@@ -107,61 +89,32 @@ interface ImageCheckboxProps {
 function ImageCheckbox({ title }: ImageCheckboxProps) {
 	const session = useContext(SessionContext);
 	const theme = useMantineTheme();
-	const [isModalOpened, setModalOpened] = useState(false); // Modal visibility state
-	const [otherStyle, setOtherStyle] = useState('');
 
 	if (!session) {
 		throw new Error('Session undefined.');
 	}
 
-	const isChecked = session.style === title || (title === 'Other' && session.style === otherStyle);
+	const isChecked = session.budget === title;
 
 	const handleClick = () => {
-		if (title === 'Other') {
-			setModalOpened(true);
-		} else {
-			session.setStyle(isChecked ? '' : title);
-		}
+		session.setBudget(isChecked ? '' : title);
 	};
 
-	const handleConfirm = () => {
-		session.setStyle(otherStyle);
-		setModalOpened(false);
-	};
 
 	return (
-		<>
-			<UnstyledButton
-				onClick={handleClick}
-				data-checked={isChecked || undefined}
-				className={`${classes.button} ${isChecked ? classes.checked : ''}`}
-			>
-				<div className={classes.body}>
-					<Text fz={10} fw={500} size="sm" lh={1} c={isChecked ? theme.colors.theme1[3] : theme.colors.theme2[0]}>
-						{title}
-					</Text>
-				</div>
-			</UnstyledButton>
-			{title === 'Other' && (
-				<Modal
-					opened={isModalOpened}
-					onClose={() => setModalOpened(false)}
-					title="Enter custom style"
-					centered
-				>
 
-					<TextInput
-						label="Custom Style"
-						placeholder="Enter your preferred style..."
-						value={otherStyle}
-						onChange={(event) => setOtherStyle(event.currentTarget.value)}
-					/>
-					<Button justify={"center"} mt="md" onClick={handleConfirm}>
-						Confirm
-					</Button>
-				</Modal>
-			)}
-		</>
+		<UnstyledButton
+			onClick={handleClick}
+			data-checked={isChecked || undefined}
+			className={`${classes.budgetButton} ${isChecked ? classes.checked : ''}`}
+		>
+			<div className={classes.body}>
+				<Text fz={15} fw={500} size="sm" lh={1} c={isChecked ? theme.colors.theme1[3] : theme.colors.theme2[0]}>
+					{title}
+				</Text>
+			</div>
+		</UnstyledButton>
+
 	);
 }
 
@@ -171,7 +124,7 @@ function ImageCheckboxes() {
 	));
 	return (
 		<Stack>
-			<SimpleGrid cols={4}>{items}</SimpleGrid>
+			<SimpleGrid cols={1}>{items}</SimpleGrid>
 		</Stack>
 	);
 }

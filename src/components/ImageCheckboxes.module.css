@@ -8,11 +8,28 @@
   transition: background-color 250ms ease, border-color 250ms ease;
   border-radius: var(--mantine-radius-sm);
   padding: var(--mantine-spacing-sm);
-  background-color: #e0bbc1;
+  background-color: #DADFF7;
 }
 
 .button[data-checked] {
-  background-color: #BF4342; /* Change color when checked */
+  background-color: #272838; /* Change color when checked */
+}
+
+.budgetButton {
+  display: flex;
+  flex-direction: column; /* Stack content vertically */
+  align-items: center;
+  justify-content: center;
+  width: 175px; /* Set fixed width for square button */
+  height: 60px; /* Set fixed height for square button */
+  transition: background-color 250ms ease, border-color 250ms ease;
+  border-radius: var(--mantine-radius-sm);
+  padding: var(--mantine-spacing-sm);
+  background-color: #DADFF7;
+}
+
+.budgetButton[data-checked] {
+  background-color: #272838; /* Change color when checked */
 }
 
 .body {

@@ -8,6 +8,10 @@ export interface SessionContextType {
 	setRadius: (radius: number | string) => void;
 	style: string;
 	setStyle: (style: string) => void;
+	budget: string,
+	setBudget: (budget: string) => void;
+	wildcards: string[];
+	setWildcards: (wildcards: string[]) => void
 	
 }
 
@@ -17,6 +21,8 @@ export const SessionProvider: React.FC<{ children: ReactNode }> = ({ children })
 	const [location, setLocation] = useState('');
     const [radius, setRadius] = useState<number | string>(1)
 	const [style, setStyle] = useState('');
+	const [budget, setBudget] = useState('');
+	const [wildcards, setWildcards] = useState<string[]>([])
 
 	return (
 		<SessionContext.Provider
@@ -27,6 +33,10 @@ export const SessionProvider: React.FC<{ children: ReactNode }> = ({ children })
 				setRadius,
 				style,
 				setStyle,
+				budget,
+				setBudget,
+				wildcards,
+				setWildcards,
 			}}
 		>
 			{children}

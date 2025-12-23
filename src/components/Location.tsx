@@ -19,7 +19,7 @@ const Location: React.FC = () => {
     return (
         <Center style={{ height: "100vh" }}>
             <Stack align={"center"} pos={"absolute"} top="10%">
-                <Text fz={70} c={theme.colors.theme1[3]}>
+                <Text fz={60} c={theme.colors.theme1[3]}>
                     Location
                 </Text>
                 <Text fz={20} c={theme.colors.theme1[3]}>
@@ -38,14 +38,14 @@ const Location: React.FC = () => {
                 <Slider
                     defaultValue={40}
                     color={theme.colors.theme1[4]}
-                    w={"100%"}
+                    w={"90%"}
                     onChange={session.setRadius}
                     label={session.radius == 1 ? session.radius + " mile" : session.radius + " miles"}
                     value={typeof session.radius === 'string' ? 0 : session.radius}
                     max={50}
                     step={1}
                     min={1}
-                    mb={25}
+                    mb={120}
                 />
                 <Group w={"50%"} justify={"flex-end"}>
                     <Button
