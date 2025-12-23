@@ -45,7 +45,7 @@ const Location: React.FC = () => {
 					max={50}
 					step={1}
 					min={1}
-					mb={120}
+					mb={100}
 				/>
 				<Group w={"60%"} justify={"center"}>
 					<Button
