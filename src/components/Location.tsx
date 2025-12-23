@@ -18,7 +18,7 @@ const Location: React.FC = () => {
     
     return (
         <Center style={{ height: "100vh" }}>
-            <Stack align="center">
+            <Stack align={"center"} pos={"absolute"} top="10%">
                 <Text fz={70} c={theme.colors.theme1[3]}>
                     Location
                 </Text>
