@@ -22,10 +22,10 @@ const Location: React.FC = () => {
 				<Text fz={60} c={theme.colors.theme1[3]}>
 					Location
 				</Text>
-				<Text fz={20} c={theme.colors.theme1[3]}>
+				<Text fz={16} c={theme.colors.theme1[3]}>
 					Enter the location you plan on dining in.
 				</Text>
-				<Text fz={20} c={theme.colors.theme1[3]} mb={15}>
+				<Text fz={16} c={theme.colors.theme1[3]} mb={15}>
 					As well as the radius you would like to stay within.
 				</Text>
 				<TextInput

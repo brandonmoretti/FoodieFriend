@@ -29,7 +29,7 @@ const Style = () => {
 				<Text fz={60} c={theme.colors.theme1[3]}>
 					Budget
 				</Text>
-				<Text fz={20} c={theme.colors.theme1[3]}>
+				<Text fz={16} c={theme.colors.theme1[3]}>
 					Select price range of your meal.
 				</Text>
 				<ImageCheckboxes />

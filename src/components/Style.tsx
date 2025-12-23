@@ -35,7 +35,7 @@ const Style = () => {
 				<Text fz={60} c={theme.colors.theme1[3]}>
 					Style
 				</Text>
-				<Text fz={20} c={theme.colors.theme1[3]}>
+				<Text fz={16} c={theme.colors.theme1[3]}>
 					Select the style of food you want to eat.
 				</Text>
 				<ImageCheckboxes />
