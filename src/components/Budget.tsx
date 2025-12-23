@@ -33,11 +33,11 @@ const Style = () => {
 					Select price range of your meal.
 				</Text>
 				<ImageCheckboxes />
-				<Group mt={60} w={'90%'} justify={'center'}>
+				<Group mt={60} w={'100%'} justify={'center'}>
 					<Button
 						size={'lg'}
 						p={10}
-						w={'15%'}
+						w={'50px'}
 						c={theme.colors.theme1[3]}
 						bg={theme.colors.theme1[4]}
 						onClick={() => navigate('/style')}
@@ -47,7 +47,7 @@ const Style = () => {
 					<Button
 						size={'lg'}
 						p={10}
-						w={'50%'}
+						w={'40%'}
 						c={theme.colors.theme1[3]}
 						bg={theme.colors.theme2[0]}
 						onClick={() => navigate('/wildcards')}
@@ -57,7 +57,7 @@ const Style = () => {
 					<Button
 						size={'lg'}
 						p={10}
-						w={'15%'}
+						w={'50px'}
 						c={theme.colors.theme1[3]}
 						bg={'green'}
 						onClick={handleRandom}

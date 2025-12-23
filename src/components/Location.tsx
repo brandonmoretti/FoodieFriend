@@ -47,11 +47,11 @@ const Location: React.FC = () => {
 					min={1}
 					mb={120}
 				/>
-				<Group w={"50%"} justify={"flex-end"}>
+				<Group w={"60%"} justify={"center"}>
 					<Button
 						size={"lg"}
 						p={10}
-						w={"20%"}
+						w={"50px"}
 						c={theme.colors.theme1[3]}
 						bg={theme.colors.theme1[4]}
 						onClick={() => navigate("/")}
@@ -61,7 +61,7 @@ const Location: React.FC = () => {
 					<Button
 						size={"lg"}
 						p={10}
-						w={"70%"}
+						w={"50%"}
 						c={theme.colors.theme1[3]}
 						bg={theme.colors.theme2[0]}
 						onClick={() => navigate("/style")}

@@ -43,7 +43,7 @@ const Style = () => {
 					<Button
 						size={'lg'}
 						p={10}
-						w={'15%'}
+						w={'50px'}
 						c={theme.colors.theme1[3]}
 						bg={theme.colors.theme1[4]}
 						onClick={() => navigate('/location')}
@@ -53,7 +53,7 @@ const Style = () => {
 					<Button
 						size={'lg'}
 						p={10}
-						w={'50%'}
+						w={'40%'}
 						c={theme.colors.theme1[3]}
 						bg={theme.colors.theme2[0]}
 						onClick={() => navigate('/budget')}
@@ -63,7 +63,7 @@ const Style = () => {
 					<Button
 						size={'lg'}
 						p={10}
-						w={'15%'}
+						w={'50px'}
 						c={theme.colors.theme1[3]}
 						bg={'green'}
 						onClick={handleRandom}

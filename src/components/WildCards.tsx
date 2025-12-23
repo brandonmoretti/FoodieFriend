@@ -31,11 +31,11 @@ const Style = () => {
 					Select specific preferences.
 				</Text>
 				<ImageCheckboxes />
-				<Group w={'70%'} justify={'center'}>
+				<Group w={'60%'} justify={'center'}>
 					<Button
 						size={'lg'}
 						p={10}
-						w={'20%'}
+						w={'50px'}
 						c={theme.colors.theme1[3]}
 						bg={theme.colors.theme1[4]}
 						onClick={() => navigate('/budget')}
