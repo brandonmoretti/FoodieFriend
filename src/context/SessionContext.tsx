@@ -1,6 +1,6 @@
-import React, { createContext, useState } from "react";
+import { notifications } from '@mantine/notifications';
 import type { ReactNode } from "react";
-import { notifications } from '@mantine/notifications'
+import React, { createContext, useState } from "react";
 
 export interface SessionContextType {
 	location: string;

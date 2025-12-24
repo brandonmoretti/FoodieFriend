@@ -1,6 +1,6 @@
 import { Button, Center, Group, Slider, Stack, Text, TextInput, useMantineTheme } from "@mantine/core";
+import { notifications } from '@mantine/notifications';
 import { IconArrowBackUp } from '@tabler/icons-react';
-import { notifications } from '@mantine/notifications'
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { SessionContext } from "../context/SessionContext";

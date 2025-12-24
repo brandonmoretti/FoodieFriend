@@ -1,5 +1,5 @@
-import express from 'express';
 import cors from 'cors';
+import express from 'express';
 import { OpenAI } from 'openai'; // Import the OpenAI client directly
 
 const app = express();

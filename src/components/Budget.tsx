@@ -5,11 +5,11 @@ import {
 	Text, UnstyledButton,
 	useMantineTheme
 } from '@mantine/core';
+import { notifications } from '@mantine/notifications';
 import { IconArrowBackUp, IconDice5 } from '@tabler/icons-react';
 import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { SessionContext } from '../context/SessionContext';
-import { notifications } from '@mantine/notifications'
 
 const Style = () => {
 	const theme = useMantineTheme();
