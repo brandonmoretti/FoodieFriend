@@ -53,5 +53,5 @@ app.post('/api/recommend', async (req, res) => {
 
 // Start the server
 app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
+  console.log(`Server running and listening on port ${PORT}`);
 });

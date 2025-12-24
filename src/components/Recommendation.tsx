@@ -28,7 +28,7 @@ const Recommendation: React.FC = () => {
 				<Text fz={40} c={theme.colors.theme1[3]} mb={50}>
 					Recommendation
 				</Text>
-				<Text fz={16} c={theme.colors.theme1[3]} mb={25}>
+				<Text fz={16} w={250} c={theme.colors.theme1[3]} mb={25}>
 					{session.recommendation}
 				</Text>
 				<Group mt={60} w={'100%'} justify={'center'}>
