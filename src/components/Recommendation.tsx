@@ -1,4 +1,4 @@
-import { useMantineTheme, Text, Container, Box, Group, Button, Center, Stack } from "@mantine/core";
+import { Button, Center, Group, Stack, Text, useMantineTheme } from "@mantine/core";
 import { IconArrowBackUp } from "@tabler/icons-react";
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
