@@ -3,7 +3,7 @@ import express from 'express';
 import { OpenAI } from 'openai'; // Import the OpenAI client directly
 
 const app = express();
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 
 // Middleware
 app.use(cors());
@@ -11,7 +11,7 @@ app.use(express.json()); // Parse JSON body
 
 // OpenAI API configuration
 const openai = new OpenAI({
-  apiKey: "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", // Set your OpenAI API key in environment variables
+  apiKey: process.env.OPEN_API_KEY, // Set your OpenAI API key in environment variables
 });
 
 // Endpoint to process session data

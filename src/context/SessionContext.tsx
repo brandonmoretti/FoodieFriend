@@ -20,6 +20,7 @@ export interface SessionContextType {
 }
 
 export const SessionContext = createContext<SessionContextType | undefined>(undefined);
+const API_BASE_URL = "https://foodiefriendapi.onrender.com";
 
 export const SessionProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
 	const [location, setLocation] = useState('');
@@ -37,7 +38,7 @@ export const SessionProvider: React.FC<{ children: ReactNode }> = ({ children })
 	  wildcards: string[]
 	): Promise<string> => {
 	  try {
-		const response = await fetch('http://localhost:5000/api/recommend', {
+		const response = await fetch(`${API_BASE_URL}/api/recommend`, {
 		  method: 'POST',
 		  headers: {
 			'Content-Type': 'application/json',
