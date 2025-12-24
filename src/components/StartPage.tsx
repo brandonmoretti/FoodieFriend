@@ -25,6 +25,12 @@ const StartPage: React.FC = () => {
 				>
 					Let's Go!
 				</Button>
+				<Text mt={75} fz={10} c={theme.colors.theme1[3]}>
+					Note: Results are driven by OpenAI, therefore recommendations may not always be accurate or sensible.
+				</Text>
+				<Text mt={0} fz={10} c={theme.colors.theme1[3]}>
+					Give it a few tries and you may find it fun when you land on something you like!
+				</Text>
 			</Stack>
 		</Center>
 	)

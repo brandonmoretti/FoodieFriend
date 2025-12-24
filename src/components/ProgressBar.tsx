@@ -6,7 +6,7 @@ const ProgressBar = () => {
   const theme = useMantineTheme()
 
   // Define the steps (order matters)
-  const steps = ['/location', '/style', '/budget', '/wildcards'];
+  const steps = ['/location', '/style', '/budget', '/wildcards', '/recommendation'];
   const currentStep = steps.indexOf(location.pathname) + 1; 
   const progress = (currentStep / steps.length) * 100; 
 
