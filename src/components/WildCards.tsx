@@ -1,25 +1,60 @@
 import {
 	Button,
-	Center, Group, SimpleGrid,
+	Center, Group, Loader, SimpleGrid,
 	Stack,
 	Text, UnstyledButton,
 	useMantineTheme
 } from '@mantine/core';
+import { notifications } from '@mantine/notifications';
 import { IconArrowBackUp } from '@tabler/icons-react';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { SessionContext } from '../context/SessionContext';
 
 
-const Style = () => {
+const WildCards = () => {
 	const theme = useMantineTheme();
 	const navigate = useNavigate();
 	const session = useContext(SessionContext);
+	const [loading, setLoading] = useState(false)
 
 	if (!session) {
 		throw new Error('Session undefined.');
 	}
 
+	const handleSubmit = async () => {
+		try {
+			if (!session.location || !session.radius || !session.style || !session.budget) {
+				notifications.show({
+					title: 'Error',
+					message: 'Please fill in all the required fields before submitting.',
+					color: 'red',
+				});
+				return;
+			}
+
+			setLoading(true);
+			const recommendation = await session.getRestaurant(
+				session.location,
+				session.radius,
+				session.style,
+				session.budget,
+				session.wildcards
+			);
+			session.setRecommendation(recommendation);
+			navigate("/recommendation");
+
+		} catch (error) {
+			console.error('Failed to fetch restaurant recommendation:', error);
+			notifications.show({
+				title: 'Error',
+				message: 'Failed to fetch the restaurant recommendation.',
+				color: 'red',
+			});
+		} finally {
+			setLoading(false);
+		}
+	};
 
 	return (
 		<Center style={{ height: '100%' }}>
@@ -31,34 +66,40 @@ const Style = () => {
 					Select specific preferences.
 				</Text>
 				<ImageCheckboxes />
-				<Group w={'60%'} justify={'center'}>
-					<Button
-						size={'lg'}
-						p={10}
-						w={'50px'}
-						c={theme.colors.theme1[3]}
-						bg={theme.colors.theme1[4]}
-						onClick={() => navigate('/budget')}
-					>
-						<IconArrowBackUp />
-					</Button>
-					<Button
-						size={'lg'}
-						p={10}
-						w={'50%'}
-						c={theme.colors.theme1[3]}
-						bg={theme.colors.theme2[0]}
-						onClick={() => console.log(session)}
-					>
-						Submit
-					</Button>
-				</Group>
+				{loading && (
+					<Loader color={theme.colors.theme2[0]} size="lg" />
+				)}
+				{!loading && (
+					<Group w={'60%'} justify={'center'}>
+						<Button
+							size={'lg'}
+							p={10}
+							w={'50px'}
+							c={theme.colors.theme1[3]}
+							bg={theme.colors.theme1[4]}
+							onClick={() => navigate('/budget')}
+							disabled={loading}
+						>
+							<IconArrowBackUp />
+						</Button>
+						<Button
+							size={'lg'}
+							p={10}
+							w={'50%'}
+							c={theme.colors.theme1[3]}
+							bg={theme.colors.theme2[0]}
+							onClick={handleSubmit}
+						>
+							Submit
+						</Button>
+					</Group>
+				)}
 			</Stack>
 		</Center>
 	);
 };
 
-export default Style;
+export default WildCards;
 
 // ---------------------------------Mantine Component Code----------------------------------
 

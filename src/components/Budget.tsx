@@ -9,6 +9,7 @@ import { IconArrowBackUp, IconDice5 } from '@tabler/icons-react';
 import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { SessionContext } from '../context/SessionContext';
+import { notifications } from '@mantine/notifications'
 
 const Style = () => {
 	const theme = useMantineTheme();
@@ -21,6 +22,22 @@ const Style = () => {
 
 	function handleRandom() {
 		session?.setStyle("random")
+		navigate('/wildcards')
+	}
+
+	const handleNext = () => {
+		if (session.budget.length > 0) {
+			navigate("/wildcards")
+		}
+		else {
+			notifications.show({
+				title: 'Wait!',
+				message: 'You must enter a budget or randomize!',
+				color: 'blue',
+				icon: '‼️', 
+				autoClose: 2000
+			  })
+		}
 	}
 
 	return (
@@ -50,7 +67,7 @@ const Style = () => {
 						w={'40%'}
 						c={theme.colors.theme1[3]}
 						bg={theme.colors.theme2[0]}
-						onClick={() => navigate('/wildcards')}
+						onClick={handleNext}
 					>
 						Next
 					</Button>

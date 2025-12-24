@@ -1,12 +1,14 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import './App.css';
 import Budget from "./components/Budget";
+import Recommendation from "./components/Recommendation"
 import Location from './components/Location';
 import ProgressBar from "./components/ProgressBar";
 import StartPage from './components/StartPage';
 import Style from "./components/Style";
 import WildCards from "./components/WildCards";
 import { SessionProvider } from "./context/SessionContext";
+import { Notifications } from '@mantine/notifications'
 import Layout from './Layout';
 
 const App: React.FC = () => (
@@ -19,6 +21,7 @@ const App: React.FC = () => (
 				<Route path="/style" element={<Style />} />
 				<Route path="/budget" element={<Budget />} />
 				<Route path="/wildcards" element={<WildCards />} />
+				<Route path="/recommendation" element={<Recommendation />} />
 			</Route>
 		</Routes>
 	</BrowserRouter>

@@ -1,5 +1,6 @@
 import { Button, Center, Group, Slider, Stack, Text, TextInput, useMantineTheme } from "@mantine/core";
 import { IconArrowBackUp } from '@tabler/icons-react';
+import { notifications } from '@mantine/notifications'
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { SessionContext } from "../context/SessionContext";
@@ -14,6 +15,20 @@ const Location: React.FC = () => {
 		throw new Error("Session undefined.");
 	}
 
+	const handleNext = () => {
+		if (session.location.length > 0) {
+			navigate("/style")
+		}
+		else {
+			notifications.show({
+				title: 'Wait!',
+				message: 'You must enter a location!',
+				color: 'blue',
+				icon: '‼️', 
+				autoClose: 2000
+			  })
+		}
+	}
 
 
 	return (
@@ -64,7 +79,7 @@ const Location: React.FC = () => {
 						w={"50%"}
 						c={theme.colors.theme1[3]}
 						bg={theme.colors.theme2[0]}
-						onClick={() => navigate("/style")}
+						onClick={handleNext}
 					>
 						Next
 					</Button>

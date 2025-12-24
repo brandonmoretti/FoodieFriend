@@ -13,6 +13,7 @@ import { IconArrowBackUp, IconDice5 } from '@tabler/icons-react';
 import { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { SessionContext } from '../context/SessionContext';
+import { notifications } from '@mantine/notifications'
 
 
 const Style = () => {
@@ -27,6 +28,22 @@ const Style = () => {
 	function handleRandom() {
 		session?.setStyle("random")
 		navigate('/budget')
+	}
+
+
+	const handleNext = () => {
+		if (session.style.length > 0) {
+			navigate("/budget")
+		}
+		else {
+			notifications.show({
+				title: 'Wait!',
+				message: 'You must choose a style or randomize!',
+				color: 'blue',
+				icon: '‼️', 
+				autoClose: 2000
+			  })
+		}
 	}
 
 	return (
@@ -56,7 +73,7 @@ const Style = () => {
 						w={'40%'}
 						c={theme.colors.theme1[3]}
 						bg={theme.colors.theme2[0]}
-						onClick={() => navigate('/budget')}
+						onClick={handleNext}
 					>
 						Next
 					</Button>
@@ -137,7 +154,7 @@ function ImageCheckbox({ title }: ImageCheckboxProps) {
 				className={`${classes.button} ${isChecked ? classes.checked : ''}`}
 			>
 				<div className={classes.body}>
-					<Text fz={10} fw={500} size="sm" lh={1} c={isChecked ? theme.colors.theme1[3] : theme.colors.theme2[0]}>
+					<Text fz={10} fw={10000} size="sm" lh={1} c={isChecked ? theme.colors.theme1[3] : theme.colors.theme2[0]}>
 						{title}
 					</Text>
 				</div>
